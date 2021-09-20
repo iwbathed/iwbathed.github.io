@@ -1,0 +1,82 @@
+
+
+
+
+
+
+<HTML> 
+<head> 
+<script LANGUAGE='JavaScript'> 
+
+var contenent = new Array(6); // опис масиву contenent, виділення місця в пам'яті.
+contenent [0] = "Євразія"; //< опис першого елемента масиву.
+contenent [1] = "Африка" ;// опис другого елементу масиву і т. д. 
+contenent [2] = "Австралія";
+contenent [3] = "Північна Америка";
+contenent [4] = "Південна Америка";
+contenent [5] = "Антарктика";
+
+var density = new Array (6);//< опис другого масиву density, виділення місця в пам'яті. 
+density [0] = 99.8;
+density [1] = 42.12;
+density [2] = 3.1;
+density [3] = 22.9;
+density [4] = 21.4;
+density [5] = 0.00007;
+	
+var area = new Array (6);
+area [0] = 54760000; 
+area [1] = 30370000;
+area [2] = 7692000;
+area [3] = 24710000;
+area [4] = 17800000;
+area [5] = 13900000;
+
+var cont;
+
+function fun1() { 
+	cont = document.getElementById("t_count").value;
+	console.log(cont);
+	for(var i =0;i<contenent.length; i++)
+	{
+		if (contenent[i]==cont)
+		{
+			document.getElementById("t_c").value = "Густина : " + density[i];
+			document.getElementById("t_c2").value = "Площа : " + area[i];
+			break;
+		}
+	}
+}
+
+	function fun2() { 
+		cont = document.getElementById("t_count").value;
+		console.log(cont);
+
+		for(var i =0;i<contenent.length; i++)
+		{
+			if (contenent[i]==cont)
+			{
+				document.getElementById("t_d").value = "Населення континенту " +contenent[i] +" : " + density[i] * area[i];
+				break;
+			}
+		}
+	}
+	</script> 
+
+</head>
+
+<body style="background-color: #98a2b3;"> 
+	<form NAME="entryForm" id="entryForm">  <!-- відкриття дескриптора об'єкта форми.-->
+	Введіть назву планети:
+	<input TYPE="text" id="t_count" NAME="entry"> <!-- створення текстового поля для введення планети-->
+	<!-- створення кнопки, при натисканні на якій в обробнику подій onClick викликається функція  fun1 ()-->
+	<br>
+	<input TYPE="text" id="t_c" SIZE="70" NAME="output" > <!-- створення текстового поля з розміром 70 для виведення результату.-->
+	<input TYPE="text" id="t_c2" SIZE="70" NAME="output" >
+	<input TYPE="button" VALUE="Густина і площа" onClick=" fun1()"> 
+	<br>
+	<input TYPE="text" id="t_d" SIZE="70" NAME="output" > 
+	<input TYPE="button" VALUE="Населення" onClick=" fun2()">
+	</form> <!--/ / закриття дескриптора об'єкта форми.-->
+</body> 
+</HTML>

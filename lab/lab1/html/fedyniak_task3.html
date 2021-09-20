@@ -1,0 +1,22 @@
+
+<html>
+<head>
+<script>
+function fun(a)
+{
+main_form.t_res.value = a;
+}
+</script>
+</head>
+<body style="background-color: #98a2b3;" onLoad = "fun('Відбулось завантаження сторінки');">
+<form id = "main_form">
+<input type="text" size = "100" value="Calculate" 
+onFocus="fun('Відбувся клік на текстовому елементі форми');"  
+onFocus = "fun('Текстовий елемент форми отримав фокус');"><br>
+
+<input type = "text" size = "100" id = "t_res" 
+onMouseOver = "fun('Курсор потрапив на гіперпосилання');"><br>
+<a href = "d:\\" >Посилання</a>
+</form>
+</body>
+</html>

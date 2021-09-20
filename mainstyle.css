@@ -1,0 +1,28 @@
+
+body {
+  background: url(waterfall.gif) no-repeat center center fixed;
+  background-size: cover;
+    }
+h1 {
+	color: white;
+}
+
+
+#links a {
+	text-decoration: none;
+	color :#d5e0a2;
+}
+#links tr{
+	font-size: 35px;
+
+}
+#links td{
+	margin: 200px;
+}
+#links a:hover {
+background: radial-gradient(white, #FFA9A1);
+color :#c686f0;
+}
+
+
+
