@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta char-set=utf8></meta>
+<title>Лабораторна 2</title>
+<script>
+function fun()
+{alert(eval(document.getElementById("t_str").value));}
+</script>
+</head>
+
+<body style="background-color: #98a2b3;">
+<form id = "main_form">
+<table>
+	<tr>
+		<td>
+		Калькулятор :
+		<input type="text" id = "t_str" value="5 + 5">
+		<input type = "button" onClick = "fun();" value = "="><br><td>
+	</tr>
+
+</table>
+<div id = "main_div"></div>
+</form>
+
+</body>
+</html>
