@@ -1,0 +1,234 @@
+
+
+
+
+<html>
+<head>
+<meta char-set=utf8></meta>
+<title>Лабораторна 3</title>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+<script type="text/javascript">
+	function parse() {
+			// RADIO
+            let answer1 = document.getElementsByName('radio1');
+            for (var i = 0, length = answer1.length; i < length; i++) {
+  				if (answer1[i].checked) {
+    				answer1 = i;
+    				console.log(answer1);
+    				break;
+ 				}
+ 			}
+            let answer2 = document.getElementsByName('radio2');
+            for (var i = 0, length = answer2.length; i < length; i++) {
+  				if (answer2[i].checked) {
+    				answer2 = i;
+    				break;
+ 				}
+ 			}
+
+ 			//FKAGS
+            let answer3 =  document.getElementsByName('checkbox1');
+            let res3 = []
+            for(i = 0; i < answer3.length; i++) {
+            	if (answer3[i].checked) {
+            		res3.push(i) 
+            	}
+       		}
+       		let answer4 =  document.getElementsByName('checkbox2');
+       		let res4 = []
+            for(i = 0; i < answer4.length; i++) {
+            	if (answer4[i].checked) {
+            	res4.push(i) 
+            	}
+       		}
+
+       		//NUMBER
+       		let answer5 =  parseInt(number.value);
+			//TEXT
+       		let answer6 =  document.getElementById('text').value;
+
+       		results(answer1, answer2, res3, res4, answer5, answer6);
+
+       		}
+
+       	function results(answer1, answer2, res3, res4, answer5, answer6){
+       		let bal = 0;
+       		if (answer1 == 2){bal++;}
+       		if (answer2 == 1){bal++;}
+       		let res3_bal = 0;
+       		for(i=0;i<res3.length; i++){
+       			if (res3[i]==0){res3_bal++;}
+       			else if (res3[i]==2){res3_bal++;}
+       			else {res3_bal--;}
+       		}if (res3_bal<0){res3_bal=0}
+       		bal+=res3_bal;
+			let res4_bal = 0;
+       		for(i=0;i<res4.length; i++){
+       			if (res4[i]==0){res4_bal++;}
+       			else if (res4[i]==1){res4_bal++;}
+       			else if (res4[i]==3){res4_bal++;}
+       			else {res4_bal--;}
+       		}if (res4_bal<0){res4_bal=0}
+       		bal+=res4_bal;
+       		if (answer5 == 111){bal+=2;console.log(answer5);}
+       		if (answer6 == "правильно"){bal+=3;console.log(answer6);}
+       		document.getElementById('result').innerHTML += bal + "/12";
+       		document.getElementById("Send").disabled = true;
+       	}
+
+
+</script>
+</head>
+<body style="background-color: #98a2b3;">
+
+<div class="container">
+	<div class="col">Quastion 1 (max points 1)</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="radio" name="radio1" id="flexRadioDefault1">
+	  <label class="form-check-label" for="flexRadioDefault1">
+	    неправильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="radio" name="radio1" id="flexRadioDefault1">
+	  <label class="form-check-label" for="flexRadioDefault1">
+	    неправильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="radio" name="radio1" id="flexRadioDefault1">
+	  <label class="form-check-label" for="flexRadioDefault1">
+	    правильно
+	  </label>
+	</div>
+	</div>
+</div>
+<p></p>
+<div class="container">
+	<div class="col">Quastion 2 (max points 1)</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="radio" name="radio2" id="flexRadioDefault1">
+	  <label class="form-check-label" for="flexRadioDefault1">
+	    неправильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="radio" name="radio2" id="flexRadioDefault1">
+	  <label class="form-check-label" for="flexRadioDefault1">
+	    правильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="radio" name="radio2" id="flexRadioDefault1">
+	  <label class="form-check-label" for="flexRadioDefault1">
+	    неправильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="radio" name="radio2" id="flexRadioDefault1">
+	  <label class="form-check-label" for="flexRadioDefault1">
+	    неправильно
+	  </label>
+	</div>
+	</div>
+</div>	
+<p></p>
+<div class="container">
+		<div class="col">Quastion 3 (max points 2)</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="checkbox" name="checkbox1" value="" id="flexCheckDefault">
+	  <label class="form-check-label" for="flexCheckDefault">
+	    правильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="checkbox" name="checkbox1" value="" id="flexCheckDefault">
+	  <label class="form-check-label" for="flexCheckDefault">
+	    неправильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="checkbox" name="checkbox1" value="" id="flexCheckDefault">
+	  <label class="form-check-label" for="flexCheckDefault">
+	    правильно
+	  </label>
+	</div>
+	<div class="form-check">
+	  <input class="form-check-input" type="checkbox" name="checkbox1" value="" id="flexCheckDefault">
+	  <label class="form-check-label" for="flexCheckDefault">
+	    неправильно
+	  </label>
+	</div>
+	</div>
+</div>
+<p></p>
+<div class="container">
+	<div class="col">Quastion 4 (max points 3)</div>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" name="checkbox2" value="" id="flexCheckDefault">
+		<label class="form-check-label" for="flexCheckDefault">
+		    правильно
+		</label>
+	</div>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" name="checkbox2" value="" id="flexCheckDefault">
+		<label class="form-check-label" for="flexCheckDefault">
+		    правильно
+		</label>
+	</div>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" name="checkbox2" value="" id="flexCheckDefault">
+		<label class="form-check-label" for="flexCheckDefault">
+		    неправильно
+		</label>
+	</div>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" name="checkbox2" value="" id="flexCheckDefault">
+		<label class="form-check-label" for="flexCheckDefault">
+		    правильно
+		</label>
+	</div>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" name="checkbox2" value="" id="flexCheckDefault">
+		<label class="form-check-label" for="flexCheckDefault">
+		    неправильно
+		</label>
+	</div>
+	</div>
+</div>
+<p></p>
+<div class="container">
+  <div class="row row-cols-1">
+    
+    	<div class="col">Quastion 5 (max points 2)</div>
+    	<div class="col">
+    	<div class="input-group mb-3">
+		  <input type="number" id="number" class="form-control" placeholder="111" aria-label="Username">
+		</div>
+		</div>
+
+  </div>
+</div>
+<p></p>
+<div class="container">
+  <div class="row row-cols-1">
+    
+    	<div class="col">Quastion 6 (max points 3)</div>
+    	<div class="col">
+    	<div class="input-group mb-3">
+		  <input type="text" id="text" class="form-control" placeholder="правильно" aria-label="Username">
+		</div>
+		</div>
+  </div>
+</div>
+<div class="container">
+<button type="button" id="Send" onclick="parse()" class="btn btn-dark">Send</button>
+</div>
+<p><p>
+<div class="container" id = "result">Result : </div>
+
+</body>
+</html>
+
