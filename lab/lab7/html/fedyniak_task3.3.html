@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "- // W3C // DTD XHTML 1.0 Transitional // EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="../css/task_style.css"/>
+
+
+</head>
+<body>
+<script>
+	$(document).ready(function() {
+		$('#to_show').bind('click', function() {
+			$('#cat').show()
+		});
+		$('#cat').bind('click', function() {
+			$('#cat').hide()
+		});
+		$('#cat').bind('mouseover', function() {
+			$('#text').show()
+		});
+		$('#cat').bind('mouseout', function() {
+			$('#text').hide()
+		});
+
+	});
+
+
+</script>
+<div align="center">
+	<div id="to_show" style="color: white;">
+		Показати зображення
+	</div>
+	<div>
+		<img width="40%" height="30%" src="../img/cat.jpg" style="display: none;" id="cat">
+		<p id="text"><i>Котик</i></p>
+	</div>
+</div>
+</body>
+</html>
