@@ -40,6 +40,38 @@
 		 	<input id="Flat" type="text" class="form-control" placeholder="Flat">
 		 	<span id="s_flat"></span>
 		</div>
+
+
+
+		<p>Кількість ліжок в квартирі (на скільки людей розрахована)</p>
+		<div class="form-check">
+		  <input value="2" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked="">
+		  <label class="form-check-label" for="flexRadioDefault1">
+		   <p>2</p>
+		  </label>
+		</div>
+
+		<div class="form-check">
+		  <input value="3" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  <label class="form-check-label" for="flexRadioDefault1">
+		   <p>3</p>
+		  </label>
+		</div>
+		<div class="form-check">
+		  <input value="4"class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  <label class="form-check-label" for="flexRadioDefault1">
+		    <p>4</p>
+		  </label>
+		</div>
+
+
+
+
+
+
+
+
+
 		</form>	
 	</div>
 
@@ -80,7 +112,7 @@
 
 	  <div class="input-group mb-3">
 
-		<input type="number" required="required"  class="form-control" placeholder="Номер телефону" id="phone_number"
+		<input type="number" required="required"  class="form-control" placeholder="Номер телефону (10 цифр)" id="phone_number"
 	  	onblur="email_check()"
 	  	onkeyup="email_check()"
 	  	onkeypress="email_check()">
@@ -94,21 +126,21 @@
 	  	onkeypress="email_check()">
 	  	<span id="s_price"></span>
 	  </div>
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
 	
 
         <div class="input-group mb-3">
         	<P>Початок оренди</P>
             <input required="required" type="date" id="date" value="" placeholder="Початок оренди">
 
-	  			<!-- <span id="s_price"></span> -->
+	  			
 	 	</div>
 
         <div class="input-group mb-3">
         	<P>Кінець оренди</P>
             <input required="required" type="date" id="date" placeholder="Кінець оренди">
 
-	  			<!-- <span id="s_price"></span> -->
+	  			
 	 	</div>
              
 
@@ -157,6 +189,11 @@
 		</div>
 		</div>
 
+		
+	
+
+
+
 		</form>	
 	</div>
 
@@ -178,20 +215,31 @@
     	<p align="center">Квартира</p>
 	
 		<div class="input-group mb-3">
+			<pre>Місто </pre> 
 		  <p><span id="City_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>Вулиця </pre>
 		  <p><span id="Street_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>Номер будинку </pre>
 		  <p><span id="House_number_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>Поверх </pre>
 		  <p><span id="Floor_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>Номер квартири </pre>
 		  <p><span id="Flat_show"></span></p>
 		</div>
+		
+		<div class="input-group mb-3">
+			<pre>Кількість людей </pre>
+		  <p><span id="People_numb_show"></span></p>
+		</div>
+
 
 	</div>
 
@@ -200,27 +248,29 @@
     	<p align="center">Орендар</p>
 	
 		<div class="input-group mb-3">
+			<pre>Прізвище </pre>
 		  <p><span id="second_name_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>Ім'я </pre>
 		  <p><span id="first_name_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>По - батькові </pre>
 		  <p><span id="middle_name_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>Пошта </pre>
 		  <p><span id="email_show"></span></p>
 		</div>
 		<div class="input-group mb-3">
+			<pre>Номер </pre>
 		  <p><span id="phone_number_show"></span></p>
 		</div>
-		<div class="input-group mb-3">
-		  <p><span id="price_show"></span></p>
-		</div>
+
 	</div>
 
 
-	
 
 </div>
 </div>
@@ -229,10 +279,19 @@
 	</body>
 	<script type="text/javascript">
 
+		function radio_numb() {
+			let radios = document.getElementsByName('flexRadioDefault1');
 
+			for (var i = 0, length = radios.length; i < length; i++) {
+			  if (radios[i].checked == true) {
+			    console.log(i+2);
+			    return (i+2);	
+			   
+			  }
+			}
+			return 2;
 
-
-
+		}
 
 
 			
@@ -306,7 +365,7 @@
 
 		function House_number(){
 			let str = document.getElementById('House_number');
-			if ((str.value).match(/^[0-9]$/) == null){
+			if ((str.value).match(/[0-9]/) == null){
 				str.style="border: 5px double red; color : red;";
 				document.getElementById("s_house_number").innerHTML = "❌";
 				return 0;
@@ -349,8 +408,6 @@
 
 
 
-
-// ........................................................................................
 		function reset(){
 			let str = document.getElementById('check');
 			str.style="color : black;";
@@ -379,7 +436,7 @@
 
 			let email =document.getElementById('email');
 			let phone_number =document.getElementById('phone_number');
-			// let price document.getElementById('price');
+	
 
 
 			let City = document.getElementById('City');
@@ -388,19 +445,27 @@
 			let Floor= document.getElementById('Floor');
 			let Flat= document.getElementById('Flat');
 
+			
+
+			
+
 			document.getElementById("City_show").innerHTML = City.value;
 			document.getElementById("Street_show").innerHTML = Street.value;
 			document.getElementById("House_number_show").innerHTML = House_number.value;
 			document.getElementById("Floor_show").innerHTML = Floor.value;
 			document.getElementById("Flat_show").innerHTML = Flat.value;
 
-			document.getElementById("second_name_show").innerHTML = second_name;
-			document.getElementById("first_name_show").innerHTML = first_name;
-			document.getElementById("middle_name_show").innerHTML = middle_name;
-			document.getElementById("email_show").innerHTML =email;
-			document.getElementById("phone_number_show").innerHTML = phone_number;
 
-			// document.getElementById("price_show").innerHTML = "✔";
+			document.getElementById("People_numb_show").innerHTML = radio_numb();
+
+
+			document.getElementById("second_name_show").innerHTML = second_name.value;
+			document.getElementById("first_name_show").innerHTML = first_name.value;
+			document.getElementById("middle_name_show").innerHTML = middle_name.value;
+			document.getElementById("email_show").innerHTML = email.value;
+			document.getElementById("phone_number_show").innerHTML = phone_number.value;
+			
+		
 
 
 
