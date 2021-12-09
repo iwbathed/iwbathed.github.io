@@ -1,0 +1,412 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Контрольна робота</title>
+		
+
+		<!-- JavaScript Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+	</head>
+	<body>
+	<div class="container" style="padding-top: 3%;">
+<div class="row">
+
+    <div class="col">
+
+    	<p align="center">Квартира</p>
+		<form>
+		<div class="input-group mb-3">
+		  <input id="City" type="text" class="form-control" placeholder="City">
+		  <span id="s_City"></span>
+		</div>
+		<div class="input-group mb-3">
+			<input id="Street" type="text" class="form-control" placeholder="Street">
+			<span id="s_Street"></span>
+		</div>
+		<div class="input-group mb-3">
+		 	<input id="House_number" type="text" class="form-control" placeholder="House_number">
+		 	<span id="s_house_number"></span>
+		</div>
+		<div class="input-group mb-3">
+		  	<input id="Floor" type="text" class="form-control" placeholder="Floor">
+		  	<span id="s_floor"></span>
+		</div>
+		<div class="input-group mb-3">
+		 	<input id="Flat" type="text" class="form-control" placeholder="Flat">
+		 	<span id="s_flat"></span>
+		</div>
+		</form>	
+	</div>
+
+	<div class="col">
+		<p align="center">Орендар</p>
+		<form>
+		<div class="input-group mb-3">
+		<input type="text" required="required" class="form-control" placeholder="Прізвище"  id="second_name" 
+		onblur="check_first_second_Name('second_name');first_second_name('second_name');"
+		onkeyup="check_first_second_Name('second_name');first_second_name('second_name');"
+		onkeypress="check_first_second_Name('second_name');first_second_name('second_name');">
+		<span id="s_second_name"></span>
+		</div>
+			<div class="input-group mb-3">
+		  <input type="text" required="required"  class="form-control" placeholder="Ім'я"  id="first_name" 
+		  onblur="check_first_second_Name('first_name');first_second_name('first_name');"
+		  onkeyup="check_first_second_Name('first_name');first_second_name('first_name');"
+		  onkeypress="check_first_second_Name('first_name');first_second_name('first_name');">
+
+		  <span id="s_first_name"></span>
+		</div>
+		
+		<div class="input-group mb-3">
+		<input type="text" required="required" class="form-control" placeholder="По - батькові"  id="middle_name" 
+		onblur="check_first_second_Name('middle_name');first_second_name('middle_name');"
+		onkeyup="check_first_second_Name('middle_name');first_second_name('middle_name');"
+		onkeypress="check_first_second_Name('middle_name');first_second_name('middle_name');">
+		<span id="s_middle_name"></span>
+		</div>
+
+		<div class="input-group mb-3">
+		<input type="email" required="required"  class="form-control" placeholder="Електронна пошта" id="email"
+	  	onblur="email_check()"
+	  	onkeyup="email_check()"
+	  	onkeypress="email_check()">
+	  	<span id="s_email"></span>
+	  </div>
+
+	  <div class="input-group mb-3">
+
+		<input type="number" required="required"  class="form-control" placeholder="Номер телефону" id="phone_number"
+	  	onblur="email_check()"
+	  	onkeyup="email_check()"
+	  	onkeypress="email_check()">
+	  	<span id="s_phone_number"></span>
+	  </div>
+
+	   <div class="input-group mb-3">
+		<input type="number" required="required"  class="form-control" placeholder="Вартість за місяць" id="price"
+	  	onblur="email_check()"
+	  	onkeyup="email_check()"
+	  	onkeypress="email_check()">
+	  	<span id="s_price"></span>
+	  </div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+	
+
+        <div class="input-group mb-3">
+        	<P>Початок оренди</P>
+            <input required="required" type="date" id="date" value="" placeholder="Початок оренди">
+
+	  			<!-- <span id="s_price"></span> -->
+	 	</div>
+
+        <div class="input-group mb-3">
+        	<P>Кінець оренди</P>
+            <input required="required" type="date" id="date" placeholder="Кінець оренди">
+
+	  			<!-- <span id="s_price"></span> -->
+	 	</div>
+             
+
+
+
+		</form>	
+	</div>
+
+	<div class="col">
+		<p align="center">Додаткові послуги</p>
+		<form>
+
+		<div class="input-group mb-3">
+		<div class="form-check">
+		  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+		  <label class="form-check-label" for="flexCheckDefault">
+		    Wifi
+		  </label>
+		</div>
+		</div>
+
+		<div class="input-group mb-3">
+		<div class="form-check">
+		  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+		  <label class="form-check-label" for="flexCheckDefault">
+		    Наявність телефона
+		  </label>
+		</div>
+		</div>
+
+		<div class="input-group mb-3">
+		<div class="form-check">
+		  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+		  <label class="form-check-label" for="flexCheckDefault">
+		    Наявність телевізора 
+		  </label>
+		</div>
+		</div>
+
+		<div class="input-group mb-3">
+		<div class="form-check">
+		  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+		  <label class="form-check-label" for="flexCheckDefault">
+		    Щоденне прибирання
+		  </label>
+		</div>
+		</div>
+
+		</form>	
+	</div>
+
+</div>
+
+</div>
+<div class="col-12" style="padding-left: 45%;">
+   		<input type = "submit" onClick = "check_form()" value = "Відправити" id="check">
+  	</div>
+
+
+<!-- Показ -->
+
+  	<div class="container" style="padding-top: 3%;">
+<div class="row">
+
+    <div class="col">
+
+    	<p align="center">Квартира</p>
+	
+		<div class="input-group mb-3">
+		  <p><span id="City_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="Street_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="House_number_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="Floor_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="Flat_show"></span></p>
+		</div>
+
+	</div>
+
+	<div class="col">
+
+    	<p align="center">Орендар</p>
+	
+		<div class="input-group mb-3">
+		  <p><span id="second_name_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="first_name_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="middle_name_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="email_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="phone_number_show"></span></p>
+		</div>
+		<div class="input-group mb-3">
+		  <p><span id="price_show"></span></p>
+		</div>
+	</div>
+
+
+	
+
+</div>
+</div>
+
+
+	</body>
+	<script type="text/javascript">
+
+
+
+
+
+
+
+			
+		function check_first_second_Name(name) {
+			let str = document.getElementById(name);
+			str.value = str.value.replace(/[^a-zA-Zа-яА-ЯіІїЇ]/g,'');
+			str.value = str.value.charAt(0).toUpperCase() + str.value.slice(1).toLowerCase();
+
+		}
+
+		function first_second_name(name){
+			let str = document.getElementById(name);
+			if ((str.value).match(/[A-Z, А-ЯІЇ][a-zA-Zа-яА-ЯіІїЇ]*/) == null){
+				str.style="border: 5px double red; color : red;";
+				document.getElementById("s_"+name).innerHTML = "❌";
+				return 0;
+			}
+			else{
+				str.style="border: 2px solid green; color : black;";
+				document.getElementById("s_"+name).innerHTML = "✔";
+				return 1;
+			}
+		}
+
+
+		function city_street(name){
+			let str = document.getElementById(name);
+			if ((str.value).match(/[A-Z, А-ЯІЇ][a-zA-Zа-яА-ЯіІїЇ]*/) == null){
+				str.style="border: 5px double red; color : red;";
+				document.getElementById("s_"+name).innerHTML = "❌";
+				return 0;
+			}
+			else{
+				str.style="border: 2px solid green; color : black;";
+				document.getElementById("s_"+name).innerHTML = "✔";
+				return 1;
+			}
+		}
+
+
+				function email_check() {
+			let str = document.getElementById('email');
+
+			if ((str.value).match(/\w+[@]\w+\.\w\w+/) == null){
+				str.style="border: 5px double red; color : red;";
+				document.getElementById("s_email").innerHTML = "❌";
+				return 0;
+			}
+			else{
+				str.style="border: 2px solid green; color : black;";
+				document.getElementById("s_email").innerHTML = "✔";
+				return 1;
+			}
+		}
+
+
+
+		function phone_check(){
+			let str = document.getElementById('phone_number');
+			if ((str.value).match(/^[0-9]{10}$/) == null){
+				str.style="border: 5px double red; color : red;";
+				document.getElementById("s_phone_number").innerHTML = "❌";
+				return 0;
+			}
+			else{
+				str.style="border: 2px solid green; color : black;";
+				document.getElementById("s_phone_number").innerHTML = "✔";
+				return 1;
+			}
+		}
+
+		function House_number(){
+			let str = document.getElementById('House_number');
+			if ((str.value).match(/^[0-9]$/) == null){
+				str.style="border: 5px double red; color : red;";
+				document.getElementById("s_house_number").innerHTML = "❌";
+				return 0;
+			}
+			else{
+				str.style="border: 2px solid green; color : black;";
+				document.getElementById("s_house_number").innerHTML = "✔";
+				return 1;
+			}
+		}
+
+		function floor(){
+			let str = document.getElementById('Floor');
+			if ((str.value).match(/[0-9]/) == null){
+				str.style="border: 5px double red; color : red;";
+				document.getElementById("s_floor").innerHTML = "❌";
+				return 0;
+			}
+			else{
+				str.style="border: 2px solid green; color : black;";
+				document.getElementById("s_floor").innerHTML = "✔";
+				return 1;
+			}
+		}
+
+		function flat(){
+			let str = document.getElementById('Flat');
+			if ((str.value).match(/[0-9]/) == null){
+				str.style="border: 5px double red; color : red;";
+				document.getElementById("s_flat").innerHTML = "❌";
+				return 0;
+			}
+			else{
+				str.style="border: 2px solid green; color : black;";
+				document.getElementById("s_flat").innerHTML = "✔";
+				return 1;
+			}
+		}
+
+
+
+
+
+// ........................................................................................
+		function reset(){
+			let str = document.getElementById('check');
+			str.style="color : black;";
+			str.value = "Відправити";
+		}
+		function check_form(){
+			let str = document.getElementById('check');
+			if( city_street('City') * city_street('Street') * email_check() * floor() * flat() * House_number() * phone_check() * first_second_name('middle_name') *  first_second_name('first_name') * first_second_name('second_name') ){
+				str.style="color : green;";
+				str.value = "Дані відправлено!"
+				show();
+			}
+			else{
+				str.style="color : red;";
+				str.value = "Неправильно введені дані!"
+			}
+			setTimeout(reset, 2500);
+		}
+
+
+		function show(){
+			let second_name = document.getElementById('second_name');
+			let first_name = document.getElementById('first_name');
+			let middle_name =document.getElementById('middle_name');
+
+
+			let email =document.getElementById('email');
+			let phone_number =document.getElementById('phone_number');
+			// let price document.getElementById('price');
+
+
+			let City = document.getElementById('City');
+			let Street =document.getElementById('Street');
+			let House_number= document.getElementById('House_number');
+			let Floor= document.getElementById('Floor');
+			let Flat= document.getElementById('Flat');
+
+			document.getElementById("City_show").innerHTML = City.value;
+			document.getElementById("Street_show").innerHTML = Street.value;
+			document.getElementById("House_number_show").innerHTML = House_number.value;
+			document.getElementById("Floor_show").innerHTML = Floor.value;
+			document.getElementById("Flat_show").innerHTML = Flat.value;
+
+			document.getElementById("second_name_show").innerHTML = second_name;
+			document.getElementById("first_name_show").innerHTML = first_name;
+			document.getElementById("middle_name_show").innerHTML = middle_name;
+			document.getElementById("email_show").innerHTML =email;
+			document.getElementById("phone_number_show").innerHTML = phone_number;
+
+			// document.getElementById("price_show").innerHTML = "✔";
+
+
+
+
+		}
+
+
+	</script>
+</html>
